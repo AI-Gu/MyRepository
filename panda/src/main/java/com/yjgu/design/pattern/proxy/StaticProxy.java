@@ -1,20 +1,16 @@
 package com.yjgu.design.pattern.proxy;
 
-public class StaticProxy implements Image {
+public class StaticProxy implements Person {
 
-    private RealImage realImage;
+    private Person target;
 
-    private String fileName;
-
-    StaticProxy(String fileName) {
-        this.fileName = fileName;
+    StaticProxy(Person target) {
+        this.target = target;
     }
 
     @Override
-    public void display() {
-        if (realImage == null) {
-            realImage = new RealImage(fileName);
-        }
-        realImage.display();
+    public void study() {
+        System.out.println("我叫张三");
+        target.study();
     }
 }
